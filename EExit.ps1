@@ -26,5 +26,8 @@ disable-adaccount $Username -confirm:$false -verbose
 #Verbose is so that there is some type of flag given that the action was taken
 echo "  "
 echo "  "
+Get-ADPrincipalGroupMembership -Identity $Username | where {$_.Name -notlike "Domain Users"} | % {Remove-ADPrincipalGroupMembership -Identity $Username -MemberOf $ -Confirm:$false -Verbose}
+#Retrieves the users primary groups memebershi and then filters it out to remove the 
+#Domain Users group. Then pipes that value it so and removes the groups from that user. 
 Stop-Transcript
 #Stops the Transcript
