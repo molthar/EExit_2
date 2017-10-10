@@ -1,4 +1,4 @@
-#This process is to fully lockout a user from their CUI acounts as well as create a record
+#This process is to fully lockout a user from their acounts as well as create a record
 param([string]$Username = "-")
 #Sets parameters to be used throughout script. If a parameter is not correctly specified it will simple cause an error becasue
 #the default value, unless otherwise specified is a -
